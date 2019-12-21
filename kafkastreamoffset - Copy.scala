@@ -15,7 +15,7 @@ def main(args:Array[String])
 val sparkConf = new SparkConf().setAppName("kafkastream").setMaster("local[*]")
 val sparkcontext = new SparkContext(sparkConf)
 sparkcontext.setLogLevel("ERROR")
-val ssc = new StreamingContext(sparkcontext, Seconds(10))
+val ssc = new StreamingContext(sparkcontext, Seconds(200))
 ssc.checkpoint("/tmp/checkpointdir1")
 val kafkaParams = Map[String, Object](
 "bootstrap.servers" -> "localhost:9092",
